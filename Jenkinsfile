@@ -1,3 +1,11 @@
+def branch = "production"
+def repo = "git@github.com:mahesajf/be-dumbmerch.git"
+def cred = "jenkins"
+def dir = "~/be-dumbmerch"
+def server = "mahesajihanfadhlurrahman@34.142.157.248"
+def imagename = "be-dumbmerch"
+def dockerusername = "mahesaj"
+
 pipeline {
     agent any
 
@@ -36,7 +44,7 @@ pipeline {
                         cd ${dir}
                         docker container stop ${imagename} || true
                         docker container rm ${imagename} || true
-                        docker run -d -p 5000:5000 --name="${imagename}"  ${imagename}:latest
+                        docker run -d -p 5001:5000 --name="${imagename}"  ${imagename}:latest
                         exit
                     EOF
                     """
